@@ -14,4 +14,5 @@ option(HYRULE_BUILD_EXPERIMENTS "Build research experiments" ON)
 
 if(HYRULE_BUILD_EXPERIMENTS)
     add_subdirectory(experiments/001_native_execution)
+    add_subdirectory(experiments/002_architecture_detection)
 endif()
