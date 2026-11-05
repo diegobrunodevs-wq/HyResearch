@@ -1,16 +1,17 @@
-cmake_minimum_required(VERSION 3.25)
+﻿cmake_minimum_required(VERSION 3.25)
 
-project(HyruleResearch001 LANGUAGES CXX)
-
-add_executable(HyruleResearch001
-    main.cpp
+project(HyruleResearch
+    VERSION 0.1.0
+    DESCRIPTION "Native PC Port Feasibility Research"
+    LANGUAGES CXX
 )
 
-target_compile_features(HyruleResearch001 PRIVATE cxx_std_20)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-if(MSVC)
-    target_compile_options(HyruleResearch001 PRIVATE
-        /W4
-        /permissive-
-    )
+option(HYRULE_BUILD_EXPERIMENTS "Build research experiments" ON)
+
+if(HYRULE_BUILD_EXPERIMENTS)
+    add_subdirectory(experiments/001_native_execution)
 endif()
